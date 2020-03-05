@@ -1,16 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React ,{useState}from 'react';
+import { StyleSheet, Text, View, Button ,SafeAreaView} from 'react-native';
 import AppNavigator from './src/Navigator/appNavigator';
 
 
-
-
-
-
-
- function App() {
+export default  function App() {
+  // const [count, setCount] = useState(0);
   return (
-      <AppNavigator/>
+            <AppNavigator />
   );
 }
 
@@ -23,4 +19,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App 
+

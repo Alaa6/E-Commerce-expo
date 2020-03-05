@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Item from '../components/item';
+import { withNavigation } from 'react-navigation';
 
-export default class SubCategories extends React.Component {
+ class Items extends React.Component {
   render (){
     return (
       <View style={styles.row}>
@@ -35,3 +36,4 @@ col: {
     flex: 1,
 },
 });
+export default withNavigation(Items)

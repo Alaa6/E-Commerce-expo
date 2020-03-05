@@ -4,6 +4,7 @@ import { Card, Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import  Ionicons  from '@expo/vector-icons/FontAwesome';
 
+
 const {width} = Dimensions.get('window')
 
 class Category extends React.Component {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Props } from 'react';
 import { Text, StyleSheet ,Image ,ImageBackground ,TouchableOpacity, Dimensions, View} from 'react-native';
 import { Card, Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
@@ -9,16 +9,18 @@ import  MaterialIcon  from '@expo/vector-icons/MaterialIcons';
 
 const {width} = Dimensions.get('window')
 
+
+
 class Item extends React.Component {
     render() {
-        const status = this.props.status
+        const imgSrc =require('../../assets/shampo-item.jpeg')
+        const ItemName : String = 'SHAMPO'
+
       return (
-         <TouchableOpacity onPress={() => this.props.navigation.navigate('Items')} >
+         <TouchableOpacity onPress={() => this.props.navigation.navigate('ItemDetails' , {imgSrc  :imgSrc , ItemName :ItemName})} >
                <View style={styles.card}>
-                 <Image source ={ {uri:'https://vader-prod.s3.amazonaws.com/1543958419-810KAtkwn6L.jpg'}} style={{width :width/2.3 ,height:width/3}}/>
-                 <Text style={{marginBottom: 10, marginTop: 7,fontWeight :'bold' ,textAlign:'center' ,fontSize :20}} h2>    Kid shoes </Text>
-
-
+                 <Image source ={ imgSrc} style ={{width :width /2 ,height : width/2}}/>
+                 <Text style={{marginBottom: 10, marginTop: 7,fontWeight :'bold' ,textAlign:'center' ,fontSize :20}} > {ItemName} </Text>
                <View style ={styles.counterViewStyle}>
                    <Text style={{color :'#58595B' ,textAlign:'center' ,fontSize :16 ,fontWeight :'bold' ,flex :0.70}}>24.99 KD</Text>
                    <Text  style={{color :'#939598' ,textAlign:'center' ,fontSize :16 ,fontWeight :'100' ,flex:0.30 }}> x 2</Text>
@@ -78,4 +80,4 @@ minus :{
    
 });
 
-export default withNavigation(Item);
+export default withNavigation(Item)

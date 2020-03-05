@@ -1,37 +1,26 @@
 import React from 'react';
-import { Text, StyleSheet ,Image ,ImageBackground ,TouchableOpacity} from 'react-native';
+import { Text, StyleSheet, Image, ImageBackground, TouchableOpacity, View, Dimensions } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-
+const { width } = Dimensions.get('window')
 class Category extends React.Component {
     render() {
         const status = this.props.status
-      return (
-         <TouchableOpacity onPress={() => this.props.navigation.navigate('SubCategories')} >
-               <Card
-               
-         image={{uri: 'https://vader-prod.s3.amazonaws.com/1543958419-810KAtkwn6L.jpg'}}>
-                {/* <ImageBackground source ={ {uri:'https://vader-prod.s3.amazonaws.com/1543958419-810KAtkwn6L.jpg'}} style={{width :100 ,height:100}}>
-                <Text style={{marginBottom: 10, marginTop: 20 }} h2>
-                Kid shoes
-            </Text> 
-                </ImageBackground> */}
-            <Text style={{marginBottom: 10, marginTop: 20 }} h2>  Kid shoes </Text>
-            <Text style={styles.price} h4>
-                $ 200
-            </Text>
-            <Text h6 style={styles.description}>
-                added 2h ago
-            </Text>
-            {/* <Button
-            type="clear"
-            title='Buy now'
-            onPress={() => this.props.navigation.navigate('SubCategories')} /> */}
-        </Card>
-          </TouchableOpacity>
-      );
-}
+        return (
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('SubCategories')} >
+
+                <View  style={styles.card}>
+                    <Image source={require('../../assets/shampo.jpg')} style ={{width :width/2 , height : width /2 ,borderRadius: 10  }}/>
+                    <View style={{ width: width / 3, height: width / 3.1 }}>
+                            <Text style={{ marginBottom: 10, marginTop: 7, fontWeight: 'bold', fontSize: 20 }} h2>   {this.props.title} </Text>
+                    </View>
+                </View>
+
+            </TouchableOpacity>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -47,7 +36,21 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 10,
         color: '#c1c4cd'
+    },
+    card: {
+        width: width / 1.1,
+        flexDirection :'row-reverse',
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        marginTop: 7,
+        marginHorizontal: 10,
+
+
+    },
+    cartIconStyle: {
+        alignSelf: 'center'
     }
+
 });
 
 export default withNavigation(Category);

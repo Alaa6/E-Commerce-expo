@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SubCategory from '../components/subCategory';
+import Header from '../components/header';
+import { withNavigation } from 'react-navigation';
 
-export default class SubCategories extends React.Component {
+ class SubCategories extends React.Component {
   render (){
     return (
       <View style={styles.row}>
         <View style={styles.col}>
+        <Header title ='Home' />
            <SubCategory/>
         </View>
   
@@ -34,3 +37,5 @@ col: {
     flex: 1,
 },
 });
+
+export default withNavigation(SubCategories)
